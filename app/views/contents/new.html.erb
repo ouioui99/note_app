@@ -1,0 +1,20 @@
+<%= notice %>
+<%= alert %>
+
+
+<%= form_with model:@content do |f| %>
+  <p>
+  <%= f.label :title , "タイトル" %>
+  <%= f.text_field :contents%>
+  </p>
+
+  <p>
+  <%= f.label :contents , "ノート" %>
+  <%= f.text_area :contents, size: "100,500"%>
+  </p>
+
+  <p>
+  <%= f.submit %>
+  </p>
+
+<% end %>
