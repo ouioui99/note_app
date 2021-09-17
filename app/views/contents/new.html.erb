@@ -5,12 +5,12 @@
 <%= form_with model:@content do |f| %>
   <p>
   <%= f.label :title , "タイトル" %>
-  <%= f.text_field :contents%>
+  <%= f.text_field :title %>
   </p>
 
   <p>
   <%= f.label :contents , "ノート" %>
-  <%= f.text_area :contents, size: "100,500"%>
+  <%= f.text_area :contents %>
   </p>
 
   <p>
