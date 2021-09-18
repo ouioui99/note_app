@@ -1,4 +1,4 @@
-<%= link_to "ノート作成" , root_path %>
+<%= link_to "ノート作成" , '/' %>
 
 <% @contents.each do |content| %>
 <p>
@@ -13,6 +13,9 @@
 <p>
 <%= content.created_at %>
 </p>
+
+<%= link_to "編集", "contents/#{content.id}/edit" %>
+<%= link_to "削除","#" %>
 --------------------------
 
 <% end %>

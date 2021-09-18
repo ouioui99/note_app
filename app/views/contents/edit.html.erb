@@ -1,11 +1,7 @@
-<%= notice %>
-<%= alert %>
-
-<%= link_to"ノート一覧", 'contents' %>
 <%= form_with model:@content do |f| %>
   <p>
   <%= f.label :title , "タイトル" %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title , placeholder:"#{@content.title}" %>
   </p>
 
   <p>
@@ -16,5 +12,4 @@
   <p>
   <%= f.submit %>
   </p>
-
-<% end %>
+  <% end %>

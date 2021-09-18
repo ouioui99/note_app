@@ -19,6 +19,21 @@ class ContentsController < ApplicationController
     end
   end
 
+  def edit
+    @content = Content.find_by(id: params[:id])
+  end
+
+  def update
+    @content = Content.find_by(id: params[:id])
+    if @content.update(content_params)
+      redirect_to index_path
+    else
+      redirect_to edit_path
+    end
+  end
+
+
+  
   private
   def content_params
     params.require(:content).permit(:title,:contents)

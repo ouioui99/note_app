@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root to:'contents#new'
-  get '/index', to: 'contents#index'
-  
+  root 'contents#new'
   resources :contents
+  
 end
