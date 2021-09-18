@@ -1,8 +1,10 @@
 <%= notice %>
 <%= alert %>
 
+
 <%= link_to"ノート一覧", 'contents' %>
-<%= form_with model:@content do |f| %>
+<%= form_with(model:@content, local: true) do |f| %>
+<%= render 'shared/error_messages' %>
   <p>
   <%= f.label :title , "タイトル" %>
   <%= f.text_field :title %>

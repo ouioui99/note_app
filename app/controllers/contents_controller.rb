@@ -9,13 +9,12 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @contents = Content.new(content_params)
-    if @contents.save
+    @content = Content.new(content_params)
+    if @content.save
       flash[:notice]="セーブしました"
       redirect_to root_path
     else 
-      flash[:alert]="セーブ失敗"
-      redirect_to root_path
+      render 'new'
     end
   end
 

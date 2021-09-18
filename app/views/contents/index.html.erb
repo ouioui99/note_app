@@ -1,17 +1,23 @@
-<%= link_to "ノート作成" , '/' %>
+<%= link_to "ノート作成" , root_path %>
 
 <% @contents.each do |content| %>
 <p>
+ノート番号：
 <%= content.id %>
 </p>
 <p>
+タイトル：
 <%= content.title %>
 </p>
 <p>
+-内容- <br>
 <%= content.contents %>
 </p>
 <p>
+<h5>
+作成日<br>
 <%= content.created_at %>
+</h5>
 </p>
 
 <%= link_to "編集", "contents/#{content.id}/edit" %>
