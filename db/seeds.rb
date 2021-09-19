@@ -10,3 +10,12 @@ Content.create!(
     contents: "test,,,,,test,,,,,test,,,,,#{n+1}"
   )
 end
+
+Note.create!(
+  title:'test!'
+)
+
+5.times do |n|
+  Note.create!(
+    title: "test#{n+1}")
+end
