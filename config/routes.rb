@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   get 'new/note', to: 'notes#new'
   post 'new/note',to: 'notes#create'
+  get 'note/index', to:'notes#index'
   
 end

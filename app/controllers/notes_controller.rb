@@ -1,5 +1,9 @@
 class NotesController < ApplicationController
 
+  def index
+    @notes = Note.all
+  end
+
   def new
     @note = Note.new
   end
@@ -7,11 +11,11 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params_note)
     if @note.save
-      flash[:notice]="ノート作成"
+      flash[:notice]="ノート作成成功！！"
       redirect_to root_path
     else
-      flash[:alert]="ノート作成できませんでした"
-      redirect_to '/new/note'
+      flash[:alert]="タイトルが空欄です"
+      redirect_to'/new/note'
     end
   end
 
