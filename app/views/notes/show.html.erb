@@ -4,8 +4,24 @@
 <%= @note.id %>
 </p>
 <p>
-タイトル：
+ノートタイトル：
 <%= @note.title %>
+</p>
+---------------
+
+
+<% @note.content.each do |note| %>
+<p>
+タイトル：
+<%= note.title %>
+</p>
+
+
+ノート内容：
+<p>
+<%= note.contents %>
+</p>
+<% end %>
 </p>
 
 

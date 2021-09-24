@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_19_120659) do
+ActiveRecord::Schema.define(version: 2021_09_24_123317) do
 
   create_table "contents", force: :cascade do |t|
     t.string "title"
     t.text "contents"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "note_id"
+    t.index ["note_id"], name: "index_contents_on_note_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -25,4 +27,5 @@ ActiveRecord::Schema.define(version: 2021_09_19_120659) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "contents", "notes"
 end
