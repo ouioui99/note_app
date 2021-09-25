@@ -11,6 +11,8 @@
 
 
 <% @note.content.each do |note| %>
+<%= link_to "/contents/#{note.id}/edit" do %>
+
 <p>
 タイトル：
 <%= note.title %>
@@ -21,6 +23,10 @@
 <p>
 <%= note.contents %>
 </p>
+
+
+<% end %>
+-------------
 <% end %>
 </p>
 
