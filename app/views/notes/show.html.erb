@@ -7,6 +7,8 @@
 ノートタイトル：
 <%= @note.title %>
 </p>
+
+<%= link_to  "削除", "/notes/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
 ---------------
 
 
