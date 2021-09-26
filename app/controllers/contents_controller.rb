@@ -40,6 +40,8 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title,:contents)
+    params.require(:content).permit(:title,:contents,:note_id)
   end
+
+
 end

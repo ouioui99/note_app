@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  root 'contents#new'
+  root "notes#index"
   resources :contents, :notes
+
+  get 'contents/:id/new', to: 'contents#new'
+  post 'contents/:id/new', to: 'contents#new'
 
   get 'note/new', to: 'notes#new'
   post 'note/new',to: 'notes#create'
-  get 'note/index', to:'notes#index'
-  get 'note/show/:id', to:'notes#show'
+  get 'show/:id', to:'notes#show'
   
 end

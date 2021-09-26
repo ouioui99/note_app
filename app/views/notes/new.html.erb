@@ -1,8 +1,5 @@
-<%= notice %>
 <%= alert %>
 
-
-<%= link_to"ノート一覧", '/contents' %>
 <%= form_with model:@note do |f| %>
   <p>
   <%= f.label :note , "ノートタイトル" %>
@@ -11,6 +8,10 @@
 
   <p>
   <%= f.submit %>
+  </p>
+
+  <p>
+  <%=  %>
   </p>
 
 <% end %>
