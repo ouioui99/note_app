@@ -6,9 +6,11 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
+    @notes = Note.all
   end
 
   def create
+    @notes = Note.all
     @content = Content.new(content_params)
     if @content.save
       flash[:notice]="セーブしました"
@@ -20,6 +22,7 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find_by(id: params[:id])
+    @notes = Note.all
   end
 
   def update

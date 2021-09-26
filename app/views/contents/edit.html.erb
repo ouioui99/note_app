@@ -13,3 +13,7 @@
   <%= f.submit %>
   </p>
   <% end %>
+
+<% @notes.each do |n| %>
+  <%= n.title %>
+<% end %>
