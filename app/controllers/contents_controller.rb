@@ -14,7 +14,7 @@ class ContentsController < ApplicationController
     @content = Content.new(content_params)
     if @content.save
       flash[:notice]="セーブしました"
-      redirect_to root_path
+      redirect_to request.referer
     else 
       render 'new'
     end
@@ -37,7 +37,7 @@ class ContentsController < ApplicationController
   def destroy
     @content = Content.find_by(id: params[:id])
     @content.destroy
-    redirect_to contents_path
+    redirect_to "show/#{params [:id]}"
   end
 
 

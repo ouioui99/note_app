@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params_note)
     if @note.save
-      redirect_to root_path, notice: 'ノート作成成功！！'
+      redirect_to "/show/#{@note.id}", notice: 'ノート作成成功！！'
     else
       flash.now[:alert]="タイトルが空欄です"
       render new_note_path
