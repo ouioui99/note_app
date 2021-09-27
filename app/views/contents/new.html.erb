@@ -24,10 +24,13 @@
   </p>
 
 
-
-
 <% end %>
 
-<% @notes.each do |n| %>
-  <%= n.title %>
+<% @notes.each do |note| %>
+  <%= link_to "/show/#{note.id}" do %>
+    <p>
+    <%= note.title %>
+    </p> 
+  <% end %>
 <% end %>
+
