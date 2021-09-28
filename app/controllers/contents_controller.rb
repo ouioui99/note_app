@@ -14,7 +14,7 @@ class ContentsController < ApplicationController
     @content = Content.new(content_params)
     if @content.save
       flash[:notice]="セーブしました"
-      redirect_to request.referer
+      redirect_to "/show/#{@content.note_id}"
     else 
       render 'new'
     end
@@ -28,16 +28,17 @@ class ContentsController < ApplicationController
   def update
     @content = Content.find_by(id: params[:id])
     if @content.update(content_params)
-      redirect_to contents_path
+      redirect_to "/show/#{@content.note_id}"
     else
-      redirect_to edit_path
+      redirect_to request.referrer
     end
   end
 
   def destroy
     @content = Content.find_by(id: params[:id])
+    @note_id = @content.note_id
     @content.destroy
-    redirect_to "show/#{params [:id]}"
+    redirect_to "/show/#{@note_id}"
   end
 
 
@@ -45,6 +46,5 @@ class ContentsController < ApplicationController
   def content_params
     params.require(:content).permit(:title,:contents,:note_id)
   end
-
 
 end

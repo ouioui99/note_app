@@ -3,7 +3,7 @@
 
 
 <%= link_to"ノート一覧", "/notes/#{params[:id]}" %>
-<%= link_to"ノートを作る", 'note/new' %>
+<%= link_to"ノートを作る", '/note/new' %>
 <%= form_with(model:@content, local: true) do |f| %>
 <%= render 'shared/error_messages' %>
   <p>
