@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   root "notes#index"
   resources :contents, :notes
   resource :users
@@ -14,11 +15,13 @@ Rails.application.routes.draw do
 
   get 'logon', to: 'users#new'
   post 'logon', to: 'users#create'
-
+  get '/:id/show', to: 'users#show'
 
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to:'sessions#destroy'
+
+
   
 end

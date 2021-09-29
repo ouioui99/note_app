@@ -21,3 +21,8 @@ Note.create!(
   Note.create!(
     title: "test#{n+1}")
 end
+
+User.create!(
+  email: 'aaaa@gmail.com',
+  password:'12345'
+)
