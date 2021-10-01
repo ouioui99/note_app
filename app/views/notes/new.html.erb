@@ -1,6 +1,7 @@
 <%= alert %>
 
 <%= form_with model:@note do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
   <p>
   <%= f.label :note , "ノートタイトル" %>
   <%= f.text_field :title %>

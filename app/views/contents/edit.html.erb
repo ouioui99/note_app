@@ -1,7 +1,14 @@
+<% if flash[:error].present? %>
+  <% flash[:error].each do |e| %>
+    <li><%= e %></li>
+  <% end %>
+<% end %>
+
+
 <%= form_with model:@content do |f| %>
   <p>
   <%= f.label :title , "タイトル" %>
-  <%= f.text_field :title , placeholder:"#{@content.title}" %>
+  <%= f.text_field :title %>
   </p>
 
   <p>
@@ -12,9 +19,9 @@
   <p>
   <%= f.submit %>
   </p>
-  <% end %>
+<% end %>
 
-  <%= link_to  "コンテンツ削除", "/contents/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
+<%= link_to  "コンテンツ削除", "/contents/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
 
 <% @notes.each do |note| %>
   <%= link_to "/show/#{note.id}" do %>

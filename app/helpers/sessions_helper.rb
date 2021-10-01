@@ -1,6 +1,8 @@
 module SessionsHelper
   def current_user
+    #もしセッションにuser_idが入って
     if session[:user_id]
+      #@current_userがnilかfalseの時のみ値(sessionのuser_idのidを持つオブジェクト)を入れる　つまりこのコードでは中身が更新されることはない
       @current_user ||= User.find_by(id: session[:user_id])
     end
   end
@@ -9,5 +11,7 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+
+
 
 end
