@@ -6,7 +6,7 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
-    @notes = Note.all
+    login_users_note
   end
 
   def create
@@ -22,7 +22,7 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find_by(id: params[:id])
-    @notes = Note.all
+    login_users_note
   end
 
   def update
@@ -45,6 +45,10 @@ class ContentsController < ApplicationController
   private
   def content_params
     params.require(:content).permit(:title,:contents,:note_id)
+  end
+
+  def login_users_note
+    @notes = Note.where(user_id: session[:user_id])
   end
 
 end

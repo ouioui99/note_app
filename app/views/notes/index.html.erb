@@ -1,30 +1,18 @@
-<p>
-<%= flash[:notice] %>
-</p>
+<%= render  'shared/header'%>
 
 
 <%= link_to "note作成", "note/new" %>
 
 
-
-<% if logged_in? %>
-  <%= link_to "ログアウト",'/logout', method: :delete  %>
 <% @notes.each do |note| %>
 
 <p>
-ノート番号：
-<a href="/show/<%= note.id %>" >
-<%= note.id %>
-</a>
+  <a href="/show/<%= note.id %>" >
+  タイトル：
+  <%= note.title %>
+  </a>
 </p>
 
-<p>
-タイトル：
-<%= note.title %>
-</p>
 <% end %>
-<% else %>
-<%= link_to "ログイン", "/login" %>
 
 
-<% end %>
