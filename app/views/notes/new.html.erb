@@ -6,6 +6,8 @@
   <%= f.label :note , "ノートタイトル" %>
   <%= f.text_field :title %>
   </p>
+  <%= f.hidden_field :user_id, :value => session[:user_id]%> 
+  <%# ログインしているuser_idをnoteのuser_idに入れられるようにhidden_field %>
 
   <p>
   <%= f.submit %>

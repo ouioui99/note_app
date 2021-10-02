@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save && user_params[:password] == user_params[:password_confirmation]
-      redirect_to root_path
+      redirect_to '/note/new'
     else
       redirect_to '/logon'
     end

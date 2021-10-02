@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_114200) do
+ActiveRecord::Schema.define(version: 2021_10_02_073905) do
 
   create_table "contents", force: :cascade do |t|
     t.string "title"
     t.text "contents"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "note_id"
+    t.integer "note_id", null: false
     t.index ["note_id"], name: "index_contents_on_note_id"
   end
 
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_09_29_114200) do
     t.string "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

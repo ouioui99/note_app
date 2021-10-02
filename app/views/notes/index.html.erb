@@ -5,6 +5,10 @@
 
 <%= link_to "note作成", "note/new" %>
 
+
+
+<% if logged_in? %>
+  <%= link_to "ログアウト",'/logout', method: :delete  %>
 <% @notes.each do |note| %>
 
 <p>
@@ -18,10 +22,9 @@
 タイトル：
 <%= note.title %>
 </p>
-
-
-
------------------------
+<% end %>
+<% else %>
+<%= link_to "ログイン", "/login" %>
 
 
 <% end %>

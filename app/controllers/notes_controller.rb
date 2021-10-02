@@ -1,7 +1,8 @@
 class NotesController < ApplicationController
 
   def index
-    @notes = Note.all
+    #notesデータの中でuser_idとセッションidが該当するデータ全て持ってくる
+    @notes = Note.where(user_id: session[:user_id])
   end
 
   def new
@@ -15,9 +16,9 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params_note)
     if @note.save
-      redirect_to "/show/#{@note.id}", notice: 'ノート作成成功！！'
+      redirect_to root_path
     else
-      redirect_to 'new'
+      redirect_to root_path
     end
   end
 
@@ -31,7 +32,9 @@ class NotesController < ApplicationController
 
   private
   def params_note
-    params.require(:note).permit(:title)
+    params.require(:note).permit(:title, :user_id)
   end
+
+
 
 end
