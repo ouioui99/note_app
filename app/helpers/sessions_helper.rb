@@ -1,4 +1,11 @@
 module SessionsHelper
+
+  # 渡されたユーザーでログインする
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+
+  
   def current_user
     #もしセッションにuser_idが入って
     if session[:user_id]
