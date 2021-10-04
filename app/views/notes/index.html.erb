@@ -1,8 +1,8 @@
 <%= render  'shared/header'%>
 
-
-<%= link_to "note作成", "note/new" %>
-
+<% if logged_in? %>
+  <%= link_to "note作成", "note/new" %>
+<% end %>
 
 <% @notes.each do |note| %>
 
