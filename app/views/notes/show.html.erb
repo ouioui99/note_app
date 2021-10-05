@@ -8,6 +8,7 @@
 ノートタイトル：
 <%= @note.title %>
 </p>
+<%= image_tag @note.image %>
 <p>
 <%= link_to  "ノート削除", "/notes/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
 </p>
@@ -17,6 +18,7 @@
 ---------------
 
 
+
 <% @note.content.each do |note| %>
 <%= link_to "/contents/#{note.id}/edit" do %>
 
@@ -24,13 +26,6 @@
 タイトル：
 <%= note.title %>
 </p>
-
-
-ノート内容：
-<p>
-<%= note.contents %>
-</p>
-
 
 <% end %>
 -------------

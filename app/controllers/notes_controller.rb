@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
 
+  #before_action  :default_image, only: [:create]
+
   def index
     #notesデータの中でuser_idとセッションidが該当するデータ全て持ってくる
     @notes = Note.where(user_id: session[:user_id])
@@ -14,6 +16,7 @@ class NotesController < ApplicationController
   end
 
   def create
+    # default_image
     @note = Note.new(params_note)
     if @note.save
       redirect_to root_path
@@ -32,8 +35,16 @@ class NotesController < ApplicationController
 
   private
   def params_note
-    params.require(:note).permit(:title, :user_id)
+    params.require(:note).permit(:title, :user_id, :image)
   end
+
+#  def default_image
+#     if params[:image] == nil
+#       params[:image] = default_image.jpg
+#     else
+#       params[:image]
+#     end
+#   end
 
 
 
