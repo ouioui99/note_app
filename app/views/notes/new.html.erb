@@ -11,8 +11,9 @@
   <%= f.hidden_field :user_id, :value => session[:user_id]%> 
   <%# ログインしているuser_idをnoteのuser_idに入れられるようにhidden_field %>
 
-  <%= f.file_field :image  %>
-  
+  <%= f.file_field :image %>
+    
+
   <p>
   <%= f.submit %>
   </p>

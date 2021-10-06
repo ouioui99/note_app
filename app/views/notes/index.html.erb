@@ -5,6 +5,14 @@
 <% end %>
 
 <% @notes.each do |note| %>
+<p>-----------------</p>
+<% if note.image.attached? %>
+<!--画像が登録されている場合の処理-->
+ <p><%= image_tag note.image,:size => "50x50" %></p>
+<% else %>
+<!--画像が登録されていない場合の処理-->
+ <p><%= image_tag 'note.jpg',:size => "50x50"  %></p>
+<% end %>
 
 <p>
   <a href="/show/<%= note.id %>" >

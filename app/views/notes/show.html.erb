@@ -1,5 +1,12 @@
 <%= render  'shared/header'%>
 
+<% if @note.image.attached? %>
+<!--画像が登録されている場合の処理-->
+ <p><%= image_tag @note.image,:size => "50x50" %></p>
+<% else %>
+<!--画像が登録されていない場合の処理-->
+ <p><%= image_tag 'note.jpg',:size => "50x50"  %></p>
+<% end %>
 <p>
 ノート番号：
 <%= @note.id %>
@@ -8,7 +15,7 @@
 ノートタイトル：
 <%= @note.title %>
 </p>
-<%= image_tag @note.image %>
+
 <p>
 <%= link_to  "ノート削除", "/notes/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
 </p>
