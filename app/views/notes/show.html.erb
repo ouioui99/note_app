@@ -2,10 +2,10 @@
 
 <% if @note.image.attached? %>
 <!--画像が登録されている場合の処理-->
- <p><%= image_tag @note.image,:size => "50x50" %></p>
+ <p><%= image_tag @note.image,class:"circle-image"%></p>
 <% else %>
 <!--画像が登録されていない場合の処理-->
- <p><%= image_tag 'note.jpg',:size => "50x50"  %></p>
+ <p><%= image_tag 'note.jpg',class:"circle-image"%></p>
 <% end %>
 <p>
 ノート番号：

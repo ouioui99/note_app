@@ -1,6 +1,32 @@
-<% if logged_in? %>
-  <%= link_to "ログアウト",'/logout', method: :delete  %>
-<% else %>
-  <%= link_to "ログオン", "/logon" %>
-  <%= link_to "ログイン", "/login" %>
-<% end %>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href='/'>NOTE</a>
+
+      <ul class="nav">
+        <li class="nav-item">
+          <% if logged_in? %>
+            <%= link_to "Logout",'/logout',class:"nav-link", method: :delete %>
+          <% else %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログオン", "/logon", class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", "/login" ,class:"nav-link" %>
+        </li>
+      </ul>
+      <% end %>
+    
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
