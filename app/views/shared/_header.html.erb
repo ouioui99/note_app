@@ -5,13 +5,13 @@
     <a class="navbar-brand" href='/'>NOTE</a>
 
       <ul class="nav">
-        <li class="nav-item">
+        <li class="nav-item ">
           <% if logged_in? %>
           <li>
-            <%= link_to "ノート作成",'note/new',class:"nav-link" %>
+            <%= link_to "ノート作成",'/note/new',class:"nav-link text-white" %>
           </li>
           <li>
-            <%= link_to "ログアウト",'/logout',class:"nav-link", method: :delete %>
+            <%= link_to "ログアウト",'/logout',class:"nav-link text-white", method: :delete %>
           </li>
       </ul>
       <% end %>

@@ -8,10 +8,6 @@
  <p><%= image_tag 'note.jpg',class:"circle-image"%></p>
 <% end %>
 <p>
-ノート番号：
-<%= @note.id %>
-</p>
-<p>
 ノートタイトル：
 <%= @note.title %>
 </p>
@@ -22,24 +18,23 @@
 <p>
 <%= link_to  "コンテンツ作成", "/contents/#{params[:id]}/new" %>
 </p>
----------------
 
 
 
 <% @note.content.each do |note| %>
-<%= link_to "/contents/#{note.id}/edit" do %>
-
-<p>
-タイトル：
-<%= note.title %>
-</p>
-
-<p>
-<%= note.contents %>
-</p>
-
-<% end %>
--------------
+  <div class="d-flex flex-row justify-content-center  bd-highlight mb-3">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body text-body">
+        <h6 class="card-title border-bottom border-3">
+          タイトル：
+          <%= note.title %>
+        </h6>
+        <p class="card-text"><%= note.contents %></p>
+        <%= link_to "編集", "/contents/#{note.id}/edit" ,class:"btn btn-primary btn-sm" %>
+        <%= link_to "削除", "/contents/#{note.id}" ,method: :delete ,class:"btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  </div>
 <% end %>
 </p>
 

@@ -17,6 +17,14 @@
  @import "bootstrap";
  @import "trix/dist/trix";
 
+ body {
+  margin: 0;
+  padding: 1em 2em;
+  color: whitesmoke;
+  background-color: #1D1D2C;
+
+}
+ 
 
 
  #acMenu dt{
@@ -44,9 +52,15 @@
     border-radius: 50%;
     object-fit:contain;
     background-color: black;
-
+    vertical-align: middle;
+    display: inline-block;
   }
 
   .note_title {
-    margin: auto;
+    display: inline-block;
+    color: whitesmoke;
   }
+
+
+
+  
