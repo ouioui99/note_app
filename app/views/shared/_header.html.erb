@@ -7,15 +7,12 @@
       <ul class="nav">
         <li class="nav-item">
           <% if logged_in? %>
-            <%= link_to "Logout",'/logout',class:"nav-link", method: :delete %>
-          <% else %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログオン", "/logon", class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", "/login" ,class:"nav-link" %>
-        </li>
+          <li>
+            <%= link_to "ノート作成",'note/new',class:"nav-link" %>
+          </li>
+          <li>
+            <%= link_to "ログアウト",'/logout',class:"nav-link", method: :delete %>
+          </li>
       </ul>
       <% end %>
     
