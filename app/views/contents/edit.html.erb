@@ -25,10 +25,5 @@
 
 <%= link_to  "コンテンツ削除", "/contents/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
 
-<% @notes.each do |note| %>
-  <%= link_to "/show/#{note.id}" do %>
-    <p>
-    <%= note.title %>
-    </p> 
-  <% end %>
-<% end %>
+
+<%= render  'shared/notes'%>
