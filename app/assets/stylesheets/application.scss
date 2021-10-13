@@ -15,7 +15,7 @@
  */
 
  @import "bootstrap";
- @import "trix/dist/trix";
+ 
 
  body {
   margin: 0;
@@ -25,8 +25,11 @@
 
 }
 
-#trix-toolbar-1{
-  color: yellow;
+
+
+
+.article {
+  display:flex;/*サイドバーとメインコンテンツを横並びにする指定をした*/
 }
 
 

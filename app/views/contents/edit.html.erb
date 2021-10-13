@@ -6,24 +6,32 @@
   <% end %>
 <% end %>
 
+<div class="article">
 
-<%= form_with model:@content do |f| %>
-  <p>
-  <%= f.label :title , "タイトル" %>
-  <%= f.text_field :title %>
-  </p>
+  <div class= "side">
+    <%= render  'shared/notes'%>
+  </div>
 
-  <p class= "textarea">
-  <%= f.label :contents , "ノート" %>
-  <%= f.rich_text_area :contents %>
-  </p>
+  <div class="content">
+    <%= form_with model:@content do |f| %>
+      <p>
+      <%= f.label :title , "タイトル" %>
+      <%= f.text_field :title %>
+      </p>
 
-  <p>
-  <%= f.submit %>
-  </p>
-<% end %>
+      <p class= "textarea">
+      <%= f.label :contents , "ノート" %>
+      <%= f.rich_text_area :contents %>
+      </p>
+
+      <p>
+      <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+  
+</div>
 
 <%= link_to  "コンテンツ削除", "/contents/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
 
 
-<%= render  'shared/notes'%>
