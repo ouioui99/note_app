@@ -8,12 +8,14 @@
       </h2>
       <div id="collapse<%=note.id%>" class="accordion-collapse collapse toggle bg-secondary" aria-labelledby="heading<%=note.id%>" data-bs-parent="#accordion<%=note.id%>">
         <div class="accordion-body text-light">
-          <%note.content.each do |note_content|%>
-          <%= note_content.contents %>
+          <% note.content.each do |note_content|%>
+          <p>
+          <!--ここにcontents.idを渡したい-->
+          <a class="btn btn-outline-light" href= "/contents/<%=note_content.id%>/edit" role="button">title:<%= note_content.title %></a>
+          </p>
           <% end %>
         </div>
       </div>
     </div>
 <% end %>
 
-<div class="fixed-bottom" >aaaaa</div>

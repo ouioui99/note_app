@@ -17,19 +17,19 @@
       <div class="card" style="width: 18rem; background-color: wheat">
         <div class="card-body text-body">
           <h6 class="card-title border-bottom border-3 ">
-            タイトル：
+            title：
             <%= note.title %>
           </h6>
           <p class="card-text"><%= note.contents %></p>
-          <%= link_to "編集", "/contents/#{note.id}/edit" ,class:"btn btn-primary btn-sm" %>
+          <%= link_to "edit", "/contents/#{note.id}/edit" ,class:"btn btn-primary btn-sm" %>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<%=note.id%>">
-            削除
+            delete
           </button>
           <!-- Modal -->
           <div class="modal fade" id="exampleModal<%=note.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
+              <div class="modal-content text-dark">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">タイトル：<%= note.title %>を削除しますか？</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -45,6 +45,7 @@
               </div>
             </div>
           </div>
+ 
         </div>
       </div>
     </div>

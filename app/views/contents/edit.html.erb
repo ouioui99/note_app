@@ -16,13 +16,33 @@
 
 
         <%= f.submit %>
-        <%= link_to  "コンテンツ削除", "/contents/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>
-
     <% end %>
+    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<%=@content.id%>">
+        delete
+    </button>
+    <!-- Modal -->
+      <div class="modal fade" id="exampleModal<%=@content.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">タイトル：<%= @content.title %>を削除しますか？</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            内容:
+            <p><%= @content.contents %></p> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <%= link_to "削除", "/contents/#{@content.id}" ,method: :delete ,class:"btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
   
   <div class="flex_test-item">
-    <%= render 'shared/notes' %>
+    <%= render 'shared/notes', { note: @content} %>
   </div>
 </div>
   
