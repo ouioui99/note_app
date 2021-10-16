@@ -13,7 +13,6 @@ class ContentsController < ApplicationController
     @notes = Note.all
     @content = Content.new(content_params)
     if @content.save
-      flash[:notice]="セーブしました"
       redirect_to "/show/#{@content.note_id}"
     else 
       render 'new'
@@ -22,6 +21,7 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find_by(id: params[:id])
+    @note = Note.find_by(id: @content.note_id)
     login_users_note
   end
 

@@ -1,16 +1,7 @@
 <%= render  'shared/header'%>
 
-<% if @note.image.attached? %>
-<!--画像が登録されている場合の処理-->
- <p><%= image_tag @note.image,class:"circle-image"%></p>
-<% else %>
-<!--画像が登録されていない場合の処理-->
- <p><%= image_tag 'note.jpg',class:"circle-image"%></p>
-<% end %>
-<p>
-ノートタイトル：
-<%= @note.title %>
-</p>
+<%= render 'shared/note_title', { note: @note }%>
+
 
 <p>
 <%= link_to  "ノート削除", "/notes/#{params[:id]}", method: :delete, data: {confirm: "Are you sure?"}%>

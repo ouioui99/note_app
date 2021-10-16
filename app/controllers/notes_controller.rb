@@ -18,7 +18,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params_note)
     if @note.save
-      redirect_to root_path
+      redirect_to "/contents/#{@note.id}/new"
     else
       redirect_to root_path
     end
