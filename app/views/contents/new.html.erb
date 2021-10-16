@@ -8,34 +8,31 @@
     <li><%= e %></li>
   <% end %>
 <% end %>
+<div class="flex_test-box">
+  <div class="flex_test-item">
+    <%= form_with(model:@content, local: true) do |f| %>
 
-<%= form_with(model:@content, local: true) do |f| %>
+      <p>
+      <%= f.label :title , "タイトル" %>
+      <%= f.text_field :title %>
+      </p>
 
-  <p>
-  <%= f.label :title , "タイトル" %>
-  <%= f.text_field :title %>
-  </p>
+      <p>
+      <%= f.label :contents , "ノート" %>
+      <%= f.rich_text_area :contents %>
+      
+      <%= f.hidden_field :note_id, :value => params[:id]%> 
+      <%# 入っているノート内でコンテンツを作成できるようにhidden_fieldでurlからidを受ける %>
+      </p>
 
-  <p>
-  <%= f.label :contents , "ノート" %>
-  <%= f.rich_text_area :contents %>
-  
-  <%= f.hidden_field :note_id, :value => params[:id]%> 
-  <%# 入っているノート内でコンテンツを作成できるようにhidden_fieldでurlからidを受ける %>
-  </p>
-
-  <p>
-  <%= f.submit %>
-  </p>
+      <p>
+      <%= f.submit %>
+      </p>
 
 
-<% end %>
-
-<% @notes.each do |note| %>
-  <%= link_to "/show/#{note.id}" do %>
-    <p>
-    <%= note.title %>
-    </p> 
-  <% end %>
-<% end %>
-
+    <% end %>
+  </div>
+  <div class="flex_test-item">
+    <%= render "shared/notes" %>
+  </div>
+</div>

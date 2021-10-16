@@ -3,21 +3,23 @@
 <%= form_with(model:@user, local: true) do |f| %>
 
   <p>
-  <%= f.label :email , "メール" %>
-  <%= f.text_field :email %>
+  <%= f.label :email , "Email address" %>
+  <%= f.text_field :email, class:"form-control"  %>
   </p>
   <p>
-  <%= f.label :password , "パスワード" %>
-  <%= f.password_field :password %>  
+  <%= f.label :password , "Password" %>
+  <%= f.password_field :password, class:"form-control" %>  
   </p>
 
   <p>
-  <%= f.label :password_confirmation , "パスワード確認" %>
-  <%= f.password_field :password_confirmation %>  
+  <%= f.label :password_confirmation , "Password confirm" %>
+  <%= f.password_field :password_confirmation, class:"form-control" %>  
   </p>
 
 
   <p>
-  <%= f.submit %>
+
+    <%= f.submit :登録, class:"btn btn-primary"%>
+
   </p>
 <% end %>

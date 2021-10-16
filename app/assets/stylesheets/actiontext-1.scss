@@ -17,12 +17,14 @@ trix-editor {
     border-radius: 3px;
     margin: 0 0 0 auto;
     padding: 0.4em 0.6em;
-    min-height: 5em;
-    outline: none; }
+    min-height: 20em;
+    outline: none;
+  }
 
 
 trix-toolbar .trix-button--icon::before {
-  background-color: wheat; }
+  background-color: wheat; 
+}
 
 
 

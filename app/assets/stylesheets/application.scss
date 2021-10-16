@@ -25,17 +25,16 @@
 
 }
 
-
-
-
-.article {
-  display:flex;/*サイドバーとメインコンテンツを横並びにする指定をした*/
-}
-.side {
-  width: 50px;
+/*note/contentsアコーディオンとaction_textを横並びにする*/
+.flex_test-box {
+  display: flex;
+  margin:  10px;  
 }
 
-
+.flex_test-item{
+  padding: 10px;
+  margin:  10px;  
+}
 
 
  #acMenu dt{
