@@ -2,20 +2,20 @@
 
 <%= alert %>
 
-<%= form_with model:@note do |f| %>
+<%= form_with(model:@note, local: true) do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
   <p>
   <%= f.label :note , "ノートタイトル" %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class:"form-control bg-transparent text-light" %>
   </p>
   <%= f.hidden_field :user_id, :value => session[:user_id]%> 
   <%# ログインしているuser_idをnoteのuser_idに入れられるようにhidden_field %>
 
-  <%= f.file_field :image %>
+  <%= f.file_field :image, class: "form-control form-control-sm" %>
     
 
   <p>
-  <%= f.submit data: {disable_with: '作成中' }%>
+  <%= f.submit :登録, class:"btn btn-primary mt-2", data: {disable_with: '作成中' }%>
   </p>
 
   <p>

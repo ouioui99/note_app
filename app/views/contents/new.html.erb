@@ -1,34 +1,25 @@
 <%= render  'shared/header'%>
 
-<%= link_to"ノート一覧", "/notes/#{params[:id]}" %>
-<%= link_to"ノートを作る", '/note/new' %>
+<%= render 'shared/note_title', { note: @note }%>
 
-<% if flash[:error].present? %>
-  <% flash[:error].each do |e| %>
-    <li><%= e %></li>
-  <% end %>
-<% end %>
+
 <div class="flex_test-box">
   <div class="flex_test-item">
     <%= form_with(model:@content, local: true) do |f| %>
 
-      <p>
-      <%= f.label :title , "タイトル" %>
-      <%= f.text_field :title %>
-      </p>
+        <%= f.label :title , "コンテンツタイトル"%>
+        <%= f.text_field :title,class:"form-control bg-transparent text-light" %>
 
-      <p>
-      <%= f.label :contents , "ノート" %>
-      <%= f.rich_text_area :contents %>
-      
-      <%= f.hidden_field :note_id, :value => params[:id]%> 
-      <%# 入っているノート内でコンテンツを作成できるようにhidden_fieldでurlからidを受ける %>
-      </p>
 
-      <p>
-      <%= f.submit %>
-      </p>
+        <%= f.label :contents %>
+        <%= f.rich_text_area :contents, class:"form-control bg-transparent text-light" %>
 
+        <%= f.hidden_field :note_id, :value => params[:id]%> 
+        <%# 入っているノート内でコンテンツを作成できるようにhidden_fieldでurlからidを受ける %>
+
+      <div class="d-grid gap-3 mt-1">
+        <%= f.submit :作成, class:"btn btn-primary" %>
+      </div>
 
     <% end %>
   </div>

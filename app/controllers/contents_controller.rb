@@ -6,6 +6,7 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
+    @note = Note.find_by(id: params[:id])
     login_users_note
   end
 
@@ -30,7 +31,7 @@ class ContentsController < ApplicationController
     if @content.update(content_params)
       redirect_to "/show/#{@content.note_id}"
     else
-      redirect_to request.referrer
+      redirect_to root
     end
   end
 
