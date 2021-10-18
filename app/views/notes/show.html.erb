@@ -1,73 +1,76 @@
 <%= render  'shared/header'%>
+<% if logged_in? %>
+  
+  <%= render 'shared/note_title', { note: @note }%>
+  <div class= "mb-3">
+    <%= link_to("コンテンツ作成", "/contents/#{params[:id]}/new",{class:"btn btn-primary"}) %>
 
-<%= render 'shared/note_title', { note: @note }%>
-<div class= "mb-3">
-  <%= link_to("コンテンツ作成", "/contents/#{params[:id]}/new",{class:"btn btn-primary"}) %>
-
-  <button type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal<%=@note.id%>">
-    ノート削除
-  </button>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal<%=@note.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content text-dark">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">タイトル：<%= @note.title %>を削除しますか？</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <%= link_to "削除", "/notes/#{@note.id}" ,method: :delete ,class:"btn btn-danger" %>
+    <button type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModal<%=@note.id%>">
+      ノート削除
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal<%=@note.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">タイトル：<%= @note.title %>を削除しますか？</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= link_to "削除", "/notes/#{@note.id}" ,method: :delete ,class:"btn btn-danger" %>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
-</div>
-
-<div class="row">
-  <% @note.content.each do |note| %>
-  <div class="col-md-3">
-    <div class="d-flex flex-row justify-content-center  bd-highlight mb-3">
-      <div class="card" style="width: 18rem; background-color: wheat">
-        <div class="card-body text-body">
-          <h6 class="card-title border-bottom border-3 ">
-            title：
-            <%= note.title %>
-          </h6>
-          <p class="card-text"><%= note.contents %></p>
-          <%= link_to "edit", "/contents/#{note.id}/edit" ,class:"btn btn-primary btn-sm" %>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<%=note.id%>">
-            delete
-          </button>
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal<%=note.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content text-dark">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">タイトル：<%= note.title %>を削除しますか？</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                内容:
-                <p><%= note.contents %></p> 
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= link_to "削除", "/contents/#{note.id}" ,method: :delete ,class:"btn btn-danger" %>
+  <div class="row">
+    <% @note.content.each do |note| %>
+    <div class="col-md-3">
+      <div class="d-flex flex-row justify-content-center  bd-highlight mb-3">
+        <div class="card" style="width: 18rem; background-color: wheat">
+          <div class="card-body text-body">
+            <h6 class="card-title border-bottom border-3 ">
+              title：
+              <%= note.title %>
+            </h6>
+            <p class="card-text"><%= note.contents %></p>
+            <%= link_to "edit", "/contents/#{note.id}/edit" ,class:"btn btn-primary btn-sm" %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<%=note.id%>">
+              delete
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal<%=note.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content text-dark">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">タイトル：<%= note.title %>を削除しますか？</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  内容:
+                  <p><%= note.contents %></p> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <%= link_to "削除", "/contents/#{note.id}" ,method: :delete ,class:"btn btn-danger" %>
+                  </div>
                 </div>
               </div>
             </div>
+  
           </div>
- 
         </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-
+<% else %>
+  <%= render 'shared/not_logged_in' %>
+<% end %>
 
