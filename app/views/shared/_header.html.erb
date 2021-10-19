@@ -1,25 +1,28 @@
 
+<div class="container">
+  <div class="row">
+    <nav class="col-lg-12 col-md-7 mx-auto navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href='/'>NOTE</a>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href='/'>NOTE</a>
-
-      <ul class="nav">
-        <li class="nav-item ">
-          <% if logged_in? %>
-          <li>
-            <%= link_to "ノート作成",'/note/new',class:"nav-link text-white" %>
-          </li>
-          <li>
-            <%= link_to "ログアウト",'/logout',class:"nav-link text-white", method: :delete %>
-          </li>
-      </ul>
-      <% end %>
-    
+          <ul class="nav">
+            <li class="nav-item ">
+              <% if logged_in? %>
+              <li>
+                <%= link_to "ノート作成",'/note/new',class:"nav-link text-white" %>
+              </li>
+              <li>
+                <%= link_to "ログアウト",'/logout',class:"nav-link text-white", method: :delete %>
+              </li>
+          </ul>
+          <% end %>
+        
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
   </div>
-</nav>
+</div>
 
 
 
