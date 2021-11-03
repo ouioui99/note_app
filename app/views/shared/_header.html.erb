@@ -1,29 +1,19 @@
 
- <section class="container-fluid">
-  <div class="row"> 
-    <nav class="mx-auto navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href='/'>NOTE</a>
 
-          <ul class="nav">
-            <li class="nav-item ">
-              <% if logged_in? %>
-              <li>
-                <%= link_to "ノート作成",'/note/new',class:"nav-link text-white" %>
-              </li>
-              <li>
-                <%= link_to "ログアウト",'/logout',class:"nav-link text-white", method: :delete %>
-              </li>
-          </ul>
-          <% end %>
-          </div>
-        </div>
-      </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand mx-4" href='/'>NOTE</a>
+  <% if logged_in? %>
+  <button class="navbar-toggler mx-4" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon "></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+    <div class="navbar-nav mx-4">
+      <a class="nav-item nav-link"><%= link_to "ログアウト",'/logout',class:"nav-link text-white", method: :delete %></a>
+      <a class="nav-item nav-link"><%= link_to "ノート作成",'/note/new',class:"nav-link text-white " %></a>
+    </div>
+  <% end %>
   </div>
-</section>
-
-
+</nav>
 
 
 
