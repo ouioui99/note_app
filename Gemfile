@@ -25,6 +25,9 @@ gem 'rails-i18n'
 gem 'bcrypt', '~> 3.1.7'
 gem "aws-sdk-s3", require: false
 
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'

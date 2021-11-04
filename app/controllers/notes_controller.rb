@@ -3,7 +3,9 @@ class NotesController < ApplicationController
 
   def index
     #notesデータの中でuser_idとセッションidが該当するデータ全て持ってくる
-    @notes = Note.where(user_id: session[:user_id])
+    @notes = Note.where(user_id: session[:user_id]).page(params[:page]).per(5)
+   
+    
 
   end
 
