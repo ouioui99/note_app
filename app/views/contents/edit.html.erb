@@ -26,13 +26,14 @@
           </button>
         </div>
       <% end %>
-      </div>
-    </section>
-    <div class= "pull-right">
-
     </div>
+
+    <div class="flex_test-item">
+      <%= render 'shared/notes', { note: @content} %>
+    </div>
+    
       <!-- Modal -->
-    <div class="modal fade" id="exampleModal<%=@content.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal<%=@content.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content text-dark">
               <div class="modal-header">
@@ -51,11 +52,6 @@
           </div>
         </div>
     </div>
-    
-    <div class="flex_test-item">
-      <%= render 'shared/notes', { note: @content} %>
-    </div>
-
 </div>
 <% else %>
   <%= render 'shared/flash_error' %>
